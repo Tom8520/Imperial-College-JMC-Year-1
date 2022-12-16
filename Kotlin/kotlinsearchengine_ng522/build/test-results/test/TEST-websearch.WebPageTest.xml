@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="websearch.WebPageTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-29T10:00:18" hostname="thinkpad-e15" time="0.072">
+  <properties/>
+  <testcase name="extracts words from page" classname="websearch.WebPageTest" time="0.066"/>
+  <testcase name="converts case and removes punctuation" classname="websearch.WebPageTest" time="0.002"/>
+  <testcase name="extracts links from page" classname="websearch.WebPageTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
