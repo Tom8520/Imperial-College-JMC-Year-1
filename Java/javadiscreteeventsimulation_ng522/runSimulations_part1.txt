@@ -1,0 +1,40 @@
+Print3 Simulation
+-----------------
+Event 3 invoked at time 2.9
+Event 1 invoked at time 7.2
+Event 2 invoked at time 11.6
+
+Ticks Simulation
+----------------
+Tick at: 1.0
+Tick at: 2.0
+Tick at: 3.0
+Tick at: 4.0
+Tick at: 5.0
+Tick at: 6.0
+Tick at: 7.0
+Tick at: 8.0
+Tick at: 9.0
+
+Single Server Queue Simulation
+------------------------------
+Arrival at 0.7777800058166073, new population = 1
+Arrival at 0.8532981371697105, new population = 2
+Departure at 1.0277800058166073, new population = 1
+Departure at 1.2777800058166073, new population = 0
+Arrival at 1.717518578826721, new population = 1
+Arrival at 1.939347130653938, new population = 2
+Departure at 1.967518578826721, new population = 1
+Arrival at 1.9765137857679331, new population = 2
+Departure at 2.217518578826721, new population = 1
+Departure at 2.467518578826721, new population = 0
+Arrival at 2.828433719186867, new population = 1
+Departure at 3.078433719186867, new population = 0
+Arrival at 3.157263945340226, new population = 1
+Arrival at 3.1874794285156836, new population = 2
+Departure at 3.407263945340226, new population = 1
+Arrival at 3.4427516133419704, new population = 2
+Arrival at 3.5976721621551273, new population = 3
+Departure at 3.657263945340226, new population = 2
+Departure at 3.907263945340226, new population = 1
+SIMULATION COMPLETE

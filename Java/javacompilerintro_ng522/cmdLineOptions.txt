@@ -1,0 +1,9 @@
+Question:
+List the command line options you have used to complete this exercise.
+For each of them, explain (in <= 2 sentences) what they mean and what they allow you to do.
+
+Answer:
+
+-d : allows you to specify the directry the .class files are created it
+
+-cp : allows you to specify where libraries are
