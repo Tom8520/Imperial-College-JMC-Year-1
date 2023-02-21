@@ -3,8 +3,16 @@ import Data.List hiding (lookup, delete)
 import Data.Maybe
 
 type Dict = [String]
-data Clue = Words [String] | And Clue Clue | Synonym Clue | Anagram Clue | Reversal Clue | Insertion Clue Clue | Charade Clue Clue | Length Int Clue
+data Clue = Words [String] | 
+            And Clue Clue | 
+            Synonym Clue | 
+            Anagram Clue | 
+            Reversal Clue | 
+            Insertion Clue Clue | 
+            Charade Clue Clue | 
+            Length Int Clue 
             deriving (Show)
+
 synonyms :: [[String]]
 synonyms = [
              ["pardon", "forgive", "condone", "amnesty"],
@@ -14,7 +22,10 @@ synonyms = [
              ["county", "kent"],
              ["palace", "kensington"],
              ["working", "on"],
-             ["tap"]
+             ["tap"],
+             ["deep"],
+             ["south", "s"],
+             ["race", "speed"]
            ]
 
 lookup :: Eq a => [[a]] -> a -> [a]
@@ -26,7 +37,10 @@ isSingleton _   = False
 
 perms :: Eq a => [a] -> [[a]]
 perms [] = [[]]
-perms xs = [y : ys |y <- xs, ys <- perms (xs \\ [y]) ]
+perms xs 
+  = [(xs!!i) : ys |i <- [0..length xs-1], ys <- perms (del i xs)]
+  where
+    del n xs = take n xs ++ drop (n+1) xs
 
 insertions :: [a] -> [a] -> [[a]]
 insertions xs ys
@@ -68,7 +82,7 @@ delete s cs = [c | c <- s, c `notElem` cs]
 
 anagramIdent = ["ornate"]
 insertionIdent = ["in"]
-reversalIdent = []
+reversalIdent = ["about"]
 
 extractClue :: String -> [Clue]
 extractClue s
@@ -76,8 +90,8 @@ extractClue s
   where
     ws  = delete (words $ delete s ",") ["for", "at"]
     ws' = [if w `elem` anagramIdent then "ANAGRAM" else w | w <- ws]
-    ws'' = [if w `elem` insertionIdent then "INSERT" else w | w <- ws]
-    ws''' = [if w `elem` reversalIdent then "REVERSE" else w | w <- ws]
+    ws'' = [if w `elem` insertionIdent then "INSERT" else w | w <- ws']
+    ws''' = [if w `elem` reversalIdent then "REVERSE" else w | w <- ws'']
 
     convert :: [String] -> [Clue]
     convert [] = []
@@ -118,6 +132,8 @@ solveClue s
     
 c1 = "unsuitable at home, ornate tap (5)"
 c2 = "carol, in county, working for palace (10)"
+c3 = "race about deep south (5)"
 
 clue1 = Length 5 (And (Synonym (Words ["unsuitable"])) (Charade (Synonym (Words ["home"])) (Anagram (Words ["tap"]))))
 clue2 = Length 10 (And (Synonym (Words ["palace"])) (Charade (Insertion (Synonym (Words ["carol"])) (Synonym (Words ["county"]))) (Synonym (Words ["working"]))))
+
